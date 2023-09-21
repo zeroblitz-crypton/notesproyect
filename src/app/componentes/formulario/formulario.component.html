@@ -1,0 +1,31 @@
+
+      <div class="card-body">
+      <h4 class="card-title">Registrar Nota</h4>
+        
+        <form>
+          <div class="mb-3">
+            <label for="" class="form-label">Ingresa la nota</label>
+            <textarea  class="form-control" name="nota" [(ngModel)]="selectedNota.nota" rows="2"></textarea>
+            <button type="button" (click)="addOrEdit()" class="btn btn-success mt-2" href="#" role="button">Guardar</button>
+            <button style="margin-left: 2px;" *ngIf="selectedNota.id!=0" type="button" (click)="eliminarNota()" class="btn btn-danger mt-2" href="#" role="button">Eliminar</button>
+         
+          </div>
+        </form>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Notas</h4>
+            
+          <ul class="list-group"  *ngFor="let item of arrayNotas">
+            <li style="cursor: pointer;" class="list-group-item mt-1" [class.active]="item.id===selectedNota.id" (click)="selectedItem(item)"><p>{{item.nota}}</p></li>          
+          </ul>
+          <!--<div class="ml-2">
+            <button type="button" class="btn btn-info btn-sm" (click)="EditarNota(item.id)">Editar</button>
+          </div>
+        -->
+          <!--<div class="ml-1">
+            <button type="button" class="btn btn-danger btn-sm" (click)="eliminarNota(item.id)">Eliminar</button>
+          </div>
+        -->
+        
+      </div>
+    
